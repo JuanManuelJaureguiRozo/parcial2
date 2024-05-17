@@ -3,15 +3,15 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
-import { SocioEntity } from '../Socio/Socio.entity/Socio.entity';
-import { SocioService } from './Socio.service';
+import { SocioEntity } from '../socio/socio.entity/socio.entity';
+import { SocioService } from './socio.service';
 
 import { faker } from '@faker-js/faker';
 
 describe('SocioService', () => {
   let service: SocioService;
   let repository: Repository<SocioEntity>;
-  let SociosList: SocioEntity[];
+  let sociosList: SocioEntity[];
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -26,15 +26,15 @@ describe('SocioService', () => {
 
   const seedDatabase = async () => {
     repository.clear();
-    SociosList = [];
+    sociosList = [];
     for(let i = 0; i < 5; i++){
-        const Socio: SocioEntity = await repository.save({
-        usuario: faker.word.sample(), 
+        const socio: SocioEntity = await repository.save({
+        usuario: faker.word.sample(),
         email: faker.internet.email(),
         fechaNacimiento: faker.date.past().toISOString(),
         clubs: [],
       });
-        SociosList.push(Socio);
+        sociosList.push(socio);
     }
   }
     
@@ -42,78 +42,78 @@ describe('SocioService', () => {
     expect(service).toBeDefined();
   });
 
-  it('findAll should return all Socios', async () => {
-    const Socios: SocioEntity[] = await service.findAll();
-    expect(Socios).not.toBeNull();
-    expect(Socios).toHaveLength(SociosList.length);
+  it('findAll should return all socios', async () => {
+    const socios: SocioEntity[] = await service.findAll();
+    expect(socios).not.toBeNull();
+    expect(socios).toHaveLength(sociosList.length);
   });
 
-  it('findOne should return a Socio by id', async () => {
-    const storedSocio: SocioEntity = SociosList[0];
-    const Socio: SocioEntity = await service.findOne(storedSocio.id);
-    expect(Socio).not.toBeNull();
-    expect(Socio.usuario).toEqual(storedSocio.usuario);
-    expect(Socio.email).toEqual(storedSocio.email);
-    expect(Socio.fechaNacimiento).toEqual(storedSocio.fechaNacimiento);
+  it('findOne should return a socio by id', async () => {
+    const storedSocio: SocioEntity = sociosList[0];
+    const socio: SocioEntity = await service.findOne(storedSocio.id);
+    expect(socio).not.toBeNull();
+    expect(socio.usuario).toEqual(storedSocio.usuario);
+    expect(socio.email).toEqual(storedSocio.email);
+    expect(socio.fechaNacimiento).toEqual(storedSocio.fechaNacimiento);
   });
 
-  it('findOne should throw an exception for an invalid Socio', async () => {
-    await expect(() => service.findOne("0")).rejects.toHaveProperty("message", "The Socio with the given id was not found")
+  it('findOne should throw an exception for an invalid socio', async () => {
+    await expect(() => service.findOne("0")).rejects.toHaveProperty("message", "The socio with the given id was not found")
   });
 
-  it('create should return a new Socio', async () => {
-    const Socio: SocioEntity = {
+  it('create should return a new socio', async () => {
+    const socio: SocioEntity = {
       id: faker.string.uuid(),
-      usuario: faker.word.sample(), 
+      usuario: faker.word.sample(),
       email: faker.internet.email(),
       fechaNacimiento: faker.date.past().toISOString(),
       clubs: [],
     }
 
-    const newSocio: SocioEntity = await service.create(Socio);
+    const newSocio: SocioEntity = await service.create(socio);
     expect(newSocio).not.toBeNull();
 
     const storedSocio: SocioEntity = await repository.findOne({where: {id: newSocio.id}})
     expect(storedSocio).not.toBeNull();
-    expect(storedSocio.usuario).toEqual(Socio.usuario)
-    expect(storedSocio.email).toEqual(Socio.email)
-    expect(storedSocio.fechaNacimiento).toEqual(Socio.fechaNacimiento)
+    expect(storedSocio.usuario).toEqual(socio.usuario)
+    expect(storedSocio.email).toEqual(socio.email)
+    expect(storedSocio.fechaNacimiento).toEqual(socio.fechaNacimiento)
   });
 
-  it('update should modify a Socio', async () => {
-    const Socio: SocioEntity = SociosList[0];
-    Socio.usuario = "New user";
-    Socio.email = "New email";
+  it('update should modify a socio', async () => {
+    const socio: SocioEntity = sociosList[0];
+    socio.usuario = "New user";
+    socio.email = "New email";
   
-    const updatedSocio: SocioEntity = await service.update(Socio.id, Socio);
+    const updatedSocio: SocioEntity = await service.update(socio.id, socio);
     expect(updatedSocio).not.toBeNull();
   
-    const storedSocio: SocioEntity = await repository.findOne({ where: { id: Socio.id } })
+    const storedSocio: SocioEntity = await repository.findOne({ where: { id: socio.id } })
     expect(storedSocio).not.toBeNull();
-    expect(storedSocio.usuario).toEqual(Socio.usuario)
-    expect(storedSocio.email).toEqual(Socio.email)
+    expect(storedSocio.usuario).toEqual(socio.usuario)
+    expect(storedSocio.email).toEqual(socio.email)
   });
  
-  it('update should throw an exception for an invalid Socio', async () => {
-    let Socio: SocioEntity = SociosList[0];
-    Socio = {
-      ...Socio, usuario: "New user", email: "New email"
+  it('update should throw an exception for an invalid socio', async () => {
+    let socio: SocioEntity = sociosList[0];
+    socio = {
+      ...socio, usuario: "New user", email: "New email"
     }
-    await expect(() => service.update("0", Socio)).rejects.toHaveProperty("message", "The Socio with the given id was not found")
+    await expect(() => service.update("0", socio)).rejects.toHaveProperty("message", "The socio with the given id was not found")
   });
 
-  it('delete should remove a Socio', async () => {
-    const Socio: SocioEntity = SociosList[0];
-    await service.delete(Socio.id);
+  it('delete should remove a socio', async () => {
+    const socio: SocioEntity = sociosList[0];
+    await service.delete(socio.id);
   
-    const deletedSocio: SocioEntity = await repository.findOne({ where: { id: Socio.id } })
+    const deletedSocio: SocioEntity = await repository.findOne({ where: { id: socio.id } })
     expect(deletedSocio).toBeNull();
   });
 
-  it('delete should throw an exception for an invalid Socio', async () => {
-    const Socio: SocioEntity = SociosList[0];
-    await service.delete(Socio.id);
-    await expect(() => service.delete("0")).rejects.toHaveProperty("message", "The Socio with the given id was not found")
+  it('delete should throw an exception for an invalid socio', async () => {
+    const socio: SocioEntity = sociosList[0];
+    await service.delete(socio.id);
+    await expect(() => service.delete("0")).rejects.toHaveProperty("message", "The socio with the given id was not found")
   });
  
 });
