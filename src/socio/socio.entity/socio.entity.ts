@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { ClubEntity } from 'src/club/club.entity/club.entity';
+import { ClubEntity } from '../../club/club.entity/club.entity';
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

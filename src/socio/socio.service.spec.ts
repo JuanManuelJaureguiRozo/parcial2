@@ -83,7 +83,7 @@ describe('SocioService', () => {
   it('update should modify a socio', async () => {
     const socio: SocioEntity = sociosList[0];
     socio.usuario = "New user";
-    socio.email = "New email";
+    socio.email = "New email@";
   
     const updatedSocio: SocioEntity = await service.update(socio.id, socio);
     expect(updatedSocio).not.toBeNull();
