@@ -1,0 +1,928 @@
+{
+	"info": {
+		"_postman_id": "2e76aac5-78dc-4471-9e66-8118b2a82aed",
+		"name": "Club-Socio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26460888"
+	},
+	"item": [
+		{
+			"name": "Add a club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"CLUB_ID\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Bambule\",\r\n    \"fechaFundacion\": \"3 de enero del 2018\",\r\n    \"imagen\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.evedesa.com%2Fbambule%2F&psig=AOvVaw0BNIvO-9sj0ufwWNpbcGtC&ust=1716049427822000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPiwgraMlYYDFQAAAAAdAAAAABAK\",\r\n    \"descripcion\": \"Mejor club de Bogotá\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{BASE_URL}}/clubs",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"clubs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a club",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Bambule\",\r\n    \"fechaFundacion\": \"3 de enero del 2018\",\r\n    \"imagen\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.evedesa.com%2Fbambule%2F&psig=AOvVaw0BNIvO-9sj0ufwWNpbcGtC&ust=1716049427822000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPiwgraMlYYDFQAAAAAdAAAAABAK\",\r\n    \"descripcion\": \"Mejor club de Bogotá\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/clubs",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"clubs"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Bambule\",\n    \"fechaFundacion\": \"3 de enero del 2018\",\n    \"imagen\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.evedesa.com%2Fbambule%2F&psig=AOvVaw0BNIvO-9sj0ufwWNpbcGtC&ust=1716049427822000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPiwgraMlYYDFQAAAAAdAAAAABAK\",\n    \"descripcion\": \"Mejor club de Bogotá\",\n    \"id\": \"d2b944f2-2e26-47c8-a985-050dec423bd4\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a member",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"SOCIO_ID\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"j.jauregui\",\r\n    \"email\": \"j.jauregui@bambule.com\",\r\n    \"fechaNacimiento\": \"27 de julio del 2001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{BASE_URL}}/socios",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"socios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a member",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"j.jauregui\",\r\n    \"email\": \"j.jauregui@bambule.com\",\r\n    \"fechaNacimiento\": \"27 de julio del 2001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/socios",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"socios"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"usuario\": \"j.jauregui\",\r\n    \"email\": \"j.jauregui@bambule.com\",\r\n    \"fechaNacimiento\": \"27 de julio del 2001\",\r\n    \"id\": \"a8617684-2a9e-419e-a7dd-876fad8f80ab\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a member 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"SOCIO2_ID\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"j.cobos\",\r\n    \"email\": \"j.cobos@salvador.com\",\r\n    \"fechaNacimiento\": \"4 de diciembre del 2002\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{BASE_URL}}/socios",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"socios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a member",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"j.jauregui\",\r\n    \"email\": \"j.jauregui@bambule.com\",\r\n    \"fechaNacimiento\": \"27 de julio del 2001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/socios",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"socios"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"usuario\": \"j.jauregui\",\r\n    \"email\": \"j.jauregui@bambule.com\",\r\n    \"fechaNacimiento\": \"27 de julio del 2001\",\r\n    \"id\": \"a8617684-2a9e-419e-a7dd-876fad8f80ab\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add member to a club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/{{SOCIO_ID}}",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"clubs",
+						"{{CLUB_ID}}",
+						"socios",
+						"{{SOCIO_ID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add member to a club",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/{{SOCIO_ID}}",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"clubs",
+								"{{CLUB_ID}}",
+								"socios",
+								"{{SOCIO_ID}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"7ad1bdbf-7ade-4b5d-93f4-6fe4681ac20c\",\r\n    \"nombre\": \"Bambule\",\r\n    \"fechaFundacion\": \"3 de enero del 2018\",\r\n    \"imagen\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.evedesa.com%2Fbambule%2F&psig=AOvVaw0BNIvO-9sj0ufwWNpbcGtC&ust=1716049427822000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPiwgraMlYYDFQAAAAAdAAAAABAK\",\r\n    \"descripcion\": \"Mejor club de Bogotá\",\r\n    \"socios\": [\r\n        {\r\n            \"id\": \"5e4a5d1c-6567-4b2d-ac5f-d0b19867027e\",\r\n            \"usuario\": \"j.jauregui\",\r\n            \"email\": \"j.jauregui@bambule.com\",\r\n            \"fechaNacimiento\": \"27 de julio del 2001\"\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid member to a club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"The socio with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/00000000-0000-0000-0000-000000000000",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"clubs",
+						"{{CLUB_ID}}",
+						"socios",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid member to a club",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"clubs",
+								"{{CLUB_ID}}",
+								"socios",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"The socio with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all members of a club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"clubs",
+						"{{CLUB_ID}}",
+						"socios",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all members of a club",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"clubs",
+								"{{CLUB_ID}}",
+								"socios",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": \"5e4a5d1c-6567-4b2d-ac5f-d0b19867027e\",\r\n        \"usuario\": \"j.jauregui\",\r\n        \"email\": \"j.jauregui@bambule.com\",\r\n        \"fechaNacimiento\": \"27 de julio del 2001\"\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Get member of a club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/{{SOCIO_ID}}",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"clubs",
+						"{{CLUB_ID}}",
+						"socios",
+						"{{SOCIO_ID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get member of a club",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/{{SOCIO_ID}}",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"clubs",
+								"{{CLUB_ID}}",
+								"socios",
+								"{{SOCIO_ID}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"5e4a5d1c-6567-4b2d-ac5f-d0b19867027e\",\r\n    \"usuario\": \"j.jauregui\",\r\n    \"email\": \"j.jauregui@bambule.com\",\r\n    \"fechaNacimiento\": \"27 de julio del 2001\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a member non-associated to a club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"    pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"The socio with the given id is not associated to the club\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/{{SOCIO2_ID}}",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"clubs",
+						"{{CLUB_ID}}",
+						"socios",
+						"{{SOCIO2_ID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a member non-associated to a club",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/{{SOCIO2_ID}}",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"clubs",
+								"{{CLUB_ID}}",
+								"socios",
+								"{{SOCIO2_ID}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 412,\r\n    \"message\": \"The socio with the given id is not associated to the club\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update members of a club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"{{SOCIO2_ID}}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"clubs",
+						"{{CLUB_ID}}",
+						"socios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update members of a club",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"{{SOCIO2_ID}}\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"clubs",
+								"{{CLUB_ID}}",
+								"socios"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"1c73ab0e-b4e1-4402-864c-ce6c0d4ba34b\",\r\n    \"nombre\": \"Bambule\",\r\n    \"fechaFundacion\": \"3 de enero del 2018\",\r\n    \"imagen\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.evedesa.com%2Fbambule%2F&psig=AOvVaw0BNIvO-9sj0ufwWNpbcGtC&ust=1716049427822000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPiwgraMlYYDFQAAAAAdAAAAABAK\",\r\n    \"descripcion\": \"Mejor club de Bogotá\",\r\n    \"socios\": [\r\n        {\r\n            \"id\": \"e53380b3-0e89-4dc1-8a98-2d28d7511907\"\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invalid members of a club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"The socio with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"clubs",
+						"{{CLUB_ID}}",
+						"socios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update invalid members of a club",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"clubs",
+								"{{CLUB_ID}}",
+								"socios"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"The socio with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a member of a club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/{{SOCIO2_ID}}",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"clubs",
+						"{{CLUB_ID}}",
+						"socios",
+						"{{SOCIO2_ID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a member of a club",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/{{SOCIO2_ID}}",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"clubs",
+								"{{CLUB_ID}}",
+								"socios",
+								"{{SOCIO2_ID}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete a member non-associated to a club",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"    pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"    var data = pm.response.json();\r",
+							"    pm.expect(data.message).to.eql(\"The socio with the given id is not associated to the club\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/{{SOCIO_ID}}",
+					"protocol": "http",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"clubs",
+						"{{CLUB_ID}}",
+						"socios",
+						"{{SOCIO_ID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a member non-associated to a club",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{BASE_URL}}/clubs/{{CLUB_ID}}/socios/{{SOCIO_ID}}",
+							"protocol": "http",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"clubs",
+								"{{CLUB_ID}}",
+								"socios",
+								"{{SOCIO_ID}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 412,\r\n    \"message\": \"The socio with the given id is not associated to the club\"\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
